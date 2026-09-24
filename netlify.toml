@@ -1,0 +1,68 @@
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Old or guessed URLs
+[[redirects]]
+  from = "/sell"
+  to = "/sell-your-business"
+  status = 301
+
+[[redirects]]
+  from = "/contact-us"
+  to = "/contact"
+  status = 301
+
+[[redirects]]
+  from = "/criteria"
+  to = "/what-we-look-for"
+  status = 301
+
+# Old folder-style URLs
+
+[[redirects]]
+  from = "/sell-your-business/"
+  to = "/sell-your-business"
+  status = 301
+
+[[redirects]]
+  from = "/what-we-look-for/"
+  to = "/what-we-look-for"
+  status = 301
+
+[[redirects]]
+  from = "/how-it-works/"
+  to = "/how-it-works"
+  status = 301
+
+[[redirects]]
+  from = "/about/"
+  to = "/about"
+  status = 301
+
+[[redirects]]
+  from = "/introducers/"
+  to = "/introducers"
+  status = 301
+
+[[redirects]]
+  from = "/contact/"
+  to = "/contact"
+  status = 301
+
+[[redirects]]
+  from = "/thank-you/"
+  to = "/thank-you"
+  status = 301
+
+[[redirects]]
+  from = "/privacy/"
+  to = "/privacy"
+  status = 301
