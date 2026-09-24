@@ -114,6 +114,22 @@
       ul.innerHTML = "";
       notes.forEach(function (n) { var li = document.createElement("li"); li.className = n.c; li.textContent = n.t; ul.appendChild(li); });
 
+      /* Sale-readiness nudge: shown when answers point to gaps our business support can close */
+      var ready = result.querySelector(".result-ready");
+      if (ready) {
+        var gaps = [];
+        if (a.profit !== "yes") gaps.push("steadier, clearer financial reporting");
+        if (a.team !== "management" && a.team !== "me-team") gaps.push("reducing how much the business relies on you");
+        if (a.timing === "exploring" || a.turnover === "under-250k") gaps.push("getting processes and systems in place early");
+        var showReady = gaps.length > 0 || score < 9;
+        if (showReady) {
+          ready.querySelector(".result-ready-text").textContent = gaps.length
+            ? "Based on your answers, the biggest gains are likely to come from " + (gaps.length > 1 ? gaps.slice(0, -1).join(", ") + " and " + gaps[gaps.length - 1] : gaps[0]) + ". Our Sale-Ready Review looks at exactly these areas, and there's no obligation to sell."
+            : "Our Sale-Ready Review looks at your business through a buyer's eyes and shows what to tackle first. There's no obligation to sell.";
+        }
+        ready.hidden = !showReady;
+      }
+
       var params = new URLSearchParams({ turnover: a.turnover, profit: a.profit, team: a.team, location: a.location, timing: a.timing, fit: verdict });
       result.querySelector(".result-cta").href = "/contact?" + params.toString();
 

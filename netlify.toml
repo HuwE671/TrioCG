@@ -28,6 +28,11 @@
 # Old folder-style URLs
 
 [[redirects]]
+  from = "/business-services/"
+  to = "/business-services"
+  status = 301
+
+[[redirects]]
   from = "/sell-your-business/"
   to = "/sell-your-business"
   status = 301
