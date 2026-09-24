@@ -496,3 +496,11 @@ h1, h2 { text-wrap: balance; }
 .site-footer li { margin-bottom: .1rem; }
 /* County strip slightly larger for legibility */
 .county-strip ul { font-size: .78rem; }
+
+/* Hero: soften the top of the roof layers so no hard line sits behind the headline,
+   and give the strapline more room above the heading */
+.hero-roofs {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 38%);
+          mask-image: linear-gradient(to bottom, transparent 0, #000 38%);
+}
+.hero-strap { margin-bottom: clamp(2.25rem, 4.5vw, 3.75rem); }
